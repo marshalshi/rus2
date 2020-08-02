@@ -9,3 +9,7 @@ edition = "2018"
 [build-dependencies]
 bindgen = "0.54.1"
 
+# Won't try to test doctest since there are errors in ROS2 C code.
+# We assume ROS2 is good here.
+[lib]
+doctest = false
