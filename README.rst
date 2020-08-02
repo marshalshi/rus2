@@ -1,7 +1,7 @@
-ROS2 Rust Client Library
-^^^^^^^^^^^^^^^^^^^^^^^^
+Rust Client for ROS2
+^^^^^^^^^^^^^^^^^^^^
 
-Create ROS2 rust client library from scratch. Doing this project because following reasons:
+Create rust client for ROS2 from scratch. Doing this project because following reasons:
 
 1. `Rust <https://www.rust-lang.org/>`_ is well developed recently and it almost covers all software world.
    Related to robotics, some of most interested topics is using rust in embeded system
@@ -23,6 +23,6 @@ Create ROS2 rust client library from scratch. Doing this project because followi
 Current develop status
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Rust integrates ROS2 C API such that we are able to use them to create a `node`.
+Rust integrates ROS2 C API such that we are able to use them to create a :code:`node`.
 
-Using `eloquent <https://index.ros.org/doc/ros2/Installation/Eloquent/>`_ currently, and hardcoded `eloquent` in `build.rs`.
+Using `eloquent <https://index.ros.org/doc/ros2/Installation/Eloquent/>`_ currently, and hardcoded :code:`eloquent` in :code:`build.rs`.
