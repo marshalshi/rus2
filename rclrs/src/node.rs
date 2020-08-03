@@ -45,7 +45,7 @@ pub fn create_node() {
             &node_ops as *const _,
         );
         println!("4: *** node init: {:?} ***", ret);
-    };
+    }
 
     // Every 1 sec, we run `ros2 node list` to confirm our node
     // is running, since currently we don't have `spin` impelmented.
@@ -64,5 +64,5 @@ pub fn create_node() {
     unsafe {
         let ret = rcl_node_fini(&mut node as *mut _);
         println!("6: *** fini node: {:?} ***", ret);
-    };
+    }
 }

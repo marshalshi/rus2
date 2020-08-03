@@ -4,7 +4,7 @@ Rust Client for ROS2
 Create rust client for ROS2 from scratch. Doing this project because following reasons:
 
 1. `Rust <https://www.rust-lang.org/>`_ is well developed recently and it almost covers all software world.
-   Related to robotics, some of most interested topics is using rust in embeded system
+   Related to robotics, some of most interested topics is using rust in embedded system
    or controlling system to replace C/C++. In addition, rust is fast and security.
 2. `ROS2 <https://index.ros.org/doc/ros2/>`_ is latest software framework for robotics. It includes a
    lot of libraries and tools. The most interesting in ROS2 is it uses `DDS <https://design.ros2.org/articles/ros_on_dds.html>`_
