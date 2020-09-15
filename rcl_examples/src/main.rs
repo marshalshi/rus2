@@ -1,5 +1,7 @@
 use rclrs::node;
 
 fn main() {
-    node::create_node();
+    let nodename = "thisisnode".to_string();
+    let nodens = "thisisns".to_string();
+    node::create_node(nodename, Some(nodens));
 }
