@@ -1,7 +1,9 @@
-use rclrs::node;
+use rclrs;
 
 fn main() {
     let nodename = "thisisnode".to_string();
     let nodens = "thisisns".to_string();
-    node::create_node(nodename, Some(nodens));
+    let node = rclrs::node::create_node(nodename, Some(nodens));
+
+    rclrs::spin(&node);
 }

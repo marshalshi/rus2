@@ -6,7 +6,6 @@ use std::cell::{Ref, RefCell, RefMut};
 use std::ffi::CString;
 use std::ops::Drop;
 use std::rc::Rc;
-use std::{thread, time};
 
 #[derive(Debug)]
 pub struct NodeHandle(RefCell<rcl_node_t>);
@@ -81,7 +80,7 @@ impl Drop for Node {
 // default value "".
 // Default function arguments in Rust:
 // https://stackoverflow.com/questions/24047686/default-function-arguments-in-rust
-pub fn create_node(nodename: String, nodens_option: Option<String>) {
+pub fn create_node(nodename: String, nodens_option: Option<String>) -> Node {
     let context = Context::new();
     println!("1: *** context: {:?} ***", context);
 
@@ -91,21 +90,7 @@ pub fn create_node(nodename: String, nodens_option: Option<String>) {
         "".to_string()
     };
 
-    // Put code in `{}` to confirm `Drop` works.
-    {
-        let node = Node::new(nodename, nodens, &context);
+    let node = Node::new(nodename, nodens, &context);
 
-        let handle = &mut *node.context.get_mut();
-
-        let mut c = 0;
-        while unsafe { rcl_context_is_valid(handle) } {
-            let tens = time::Duration::from_millis(1000);
-            thread::sleep(tens);
-            c += 1;
-            if c > 3 {
-                break;
-            }
-        }
-    }
-    println!("--------------");
+    node
 }
