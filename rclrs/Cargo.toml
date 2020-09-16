@@ -13,3 +13,7 @@ bindgen = "0.54.1"
 # We assume ROS2 is good here.
 [lib]
 doctest = false
+
+[dependencies]
+log = "0.4"
+env_logger = "0.7"

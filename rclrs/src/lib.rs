@@ -1,3 +1,5 @@
+use std::{thread, time};
+
 pub mod bindings;
 pub mod common;
 pub mod context;
@@ -7,7 +9,6 @@ pub mod node;
 use crate::bindings::*;
 use crate::common::Handle;
 use crate::node::Node;
-use std::{thread, time};
 
 pub fn spin(node: &Node) {
     let context_handle = &mut *node.context.get_mut();

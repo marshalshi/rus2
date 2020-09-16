@@ -12,6 +12,7 @@ fn main() {
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks));
 
+    // TODO use generic settings for supporting different ros2 contributes
     builder = builder.clang_arg(format!("-I/opt/ros/eloquent/include"));
     println!("cargo:rustc-link-search=/opt/ros/eloquent/lib");
 

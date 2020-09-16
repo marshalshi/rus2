@@ -1,11 +1,14 @@
-use crate::bindings::*;
-use crate::common::Handle;
-use crate::error::{RclResult, ToRclResult};
 use std::cell::{Ref, RefCell, RefMut};
 use std::env;
 use std::ffi::CString;
 use std::os::raw::c_char;
 use std::rc::Rc;
+
+use log::info;
+
+use crate::bindings::*;
+use crate::common::Handle;
+use crate::error::{RclResult, ToRclResult};
 
 #[derive(Debug)]
 pub struct ContextHandle(RefCell<rcl_context_t>);
@@ -31,6 +34,7 @@ pub struct Context {
 impl Context {
     pub fn new() -> Self {
         let rcontext = unsafe { rcl_get_zero_initialized_context() };
+        info!("Created Context Handle");
         let mut context = Context {
             handle: Rc::new(ContextHandle(RefCell::new(rcontext))),
         };
@@ -61,6 +65,7 @@ impl Context {
             )
             .ok()?;
             rcl_init_options_fini(&mut init_options as *mut _).ok()?;
+            info!("Context inited")
         }
         Ok(())
     }
